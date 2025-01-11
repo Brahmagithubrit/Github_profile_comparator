@@ -11,97 +11,128 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   const html = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>GitHub Profile Comparison</title>
-      <style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 20px;
-          background-color: #f4f4f9;
-          color: #333;
-        }
-        .container {
-          max-width: 800px;
-          margin: auto;
-          padding: 20px;
-          background: #fff;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          border-radius: 8px;
-        }
-        .rough {
-          font-family: "Courier New", Courier, monospace;
-          font-weight: bold;
-          display: inline-block;
-          white-space: nowrap;
-          overflow: hidden;
-          animation: typing 2s steps(30, end), blink-caret 0.5s step-end infinite;
-          border-right: 2px solid #333;
-        }
-        @keyframes typing {
-          from { width: 0; }
-          to { width: 100%; }
-        }
-        @keyframes blink-caret {
-          from, to { border-color: transparent; }
-          50% { border-color: #333; }
-        }
-        .chat-box {
-          border: 1px solid #ccc;
-          padding: 10px;
-          margin: 20px 0;
-          max-width: 100%;
-          background-color: #fafafa;
-          border-radius: 5px;
-        }
-        .message {
-          margin: 10px 0;
-        }
-        .user {
-          font-weight: bold;
-          color: #007bff;
-        }
-        .chatgpt {
-          font-weight: bold;
-          color: #28a745;
-        }
-        form {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-        input {
-          padding: 10px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          font-size: 16px;
-        }
-        button {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          background-color: #007bff;
-          color: #fff;
-          font-size: 16px;
-          cursor: pointer;
-        }
-        button:hover {
-          background-color: #0056b3;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="rough">GitHub Profile Comparison Tool</div>
-        <form action="/compare" method="POST">
-          <input type="text" name="name" placeholder="Profile name" required />
-          <input type="text" name="comparator" placeholder="Comparator profile name" required />
-          <button type="submit">Compare</button>
-        </form>
-      </div>
-    </body>
-    </html>
+   <!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Profile Comparison</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    .rough {
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bold;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 2s steps(30, end), blink-caret 0.5s step-end infinite;
+      border-right: 2px solid #333;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #333; }
+    }
+    .chat-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 20px 0;
+      max-width: 100%;
+      background-color: #fafafa;
+      border-radius: 5px;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .user {
+      font-weight: bold;
+      color: #007bff;
+    }
+    .chatgpt {
+      font-weight: bold;
+      color: #28a745;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    /* Mobile Styles */
+    @media screen and (max-width: 600px) {
+      body {
+        padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Fixed typo */
+      }
+      .container {
+        padding: 10px;
+      }
+      .rough {
+        font-size: 18px;
+        text-align: center;
+      }
+      input {
+        font-size: 14px;
+        padding: 8px;
+      }
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+      .chat-box {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="rough">GitHub Profile Comparison Tool</div>
+    <form action="/compare" method="POST">
+      <input type="text" name="name" placeholder="Your Profile name" required />
+      <input type="text" name="comparator" placeholder="Comparator profile name" required />
+      <button type="submit">Compare</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
   `;
   res.send(html);
 });
@@ -385,6 +416,36 @@ app.post("/compare", async (req, res) => {
           opacity: 1;
         }
       }
+
+      /* Mobile Styles */
+      @media screen and (max-width: 600px) {
+        body {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .rough {
+          font-size: 16px;
+        }
+
+        .comparison-table {
+          width: 100%;
+          padding: 10px;
+        }
+
+        .comparison-table th, .comparison-table td {
+          font-size: 14px;
+          padding: 8px;
+        }
+
+        .message {
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -393,8 +454,8 @@ app.post("/compare", async (req, res) => {
       ${chatResponse}
     </div>
     <table class="comparison-table">
-    ${comparisonTable}
-  </table>
+      ${comparisonTable}
+    </table>
   </body>
   </html>
 `;
