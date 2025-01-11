@@ -321,145 +321,137 @@ app.post("/compare", async (req, res) => {
   <html>
   <head>
     <title>GitHub Profile Comparison</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 50px;
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+   
+    <style>body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 50px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-      h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 30px;
-      }
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-      .rough {
-        font-family: "Courier New", Courier, monospace;
-        font-weight: bold;
-        display: inline-block;
-        white-space: nowrap;
-        overflow: hidden;
-        animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
-        border-right: 2px solid #333;
-      }
+.rough {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 5s steps(30, end), blink-caret 0.5s step-end infinite;
+  border-right: 2px solid #333;
+}
 
-      @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-      }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
 
-      @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: #333; }
-      }
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #333; }
+}
 
-      .comparison-table {
-        max-width: 800px;
-        margin: 50px auto;
-        background: #ffffff;
-        border-collapse: collapse;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+.comparison-table {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-      .comparison-table th, .comparison-table td {
-        padding: 10px 15px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
+.comparison-table th, .comparison-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-      .comparison-table th {
-        background-color: #5c67f2;
-        color: #fff;
-      }
+.comparison-table th {
+  background-color: #5c67f2;
+  color: #fff;
+}
 
-      .comparison-table tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
+.comparison-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
-      .comparison-table tr:hover {
-        background-color: #f1f1f1;
-      }
+.comparison-table tr:hover {
+  background-color: #f1f1f1;
+}
 
-      .message {
-        font-size: 18px;
-        margin-bottom: 15px;
-        display: inline-block;
-        opacity: 0;
-        animation: typing 2s steps(30, end) forwards, fadeIn 0.5s ease-out forwards;
-        white-space: nowrap;
-      }
+.message {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: inline-block;
+  opacity: 0;
+  animation: typing 2s steps(30, end) forwards, fadeIn 0.5s ease-out forwards;
+  white-space: nowrap;
+}
 
-      @keyframes typing {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
-      }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-      @media screen and (max-width: 600px) {
-        body {
-          padding: 60px;
-          
-        }
+@media (max-width: 600px) {
+  body {
+    padding: 60px;
+  }
 
-        h1 {
-          font-size: 24px;
-        }
+  h1 {
+    font-size: 30px;
+  }
 
-        .rough {
-          font-size: 18px;
-        }
+  .rough {
+    font-size: 25px;
+  }
 
-        .comparison-table {
-          width: 100%;
-          padding: 10px;
-          margin:60px;
-        }
+  .comparison-table {
+    width: 100%;
+    padding: 10px;
+    margin: 60px;
+  }
 
-        .comparison-table th, .comparison-table td {
-          font-size: 20px;
-          padding: 8px;
-        }
+  .comparison-table th, .comparison-table td {
+    font-size: 28px;
+    padding: 10px;
+  }
 
-        .message {
-          font-size: 20px;
-          margin-bottom: 10px;
-        }
+  .message {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 
-        .chat-box {
-          padding: 12px;
-          margin-bottom: 20px;
-        }
+  .chat-box {
+    padding: 12px;
+    margin-bottom: 20px;
+  }
 
-        .comparison-table th {
-          font-size: 20px;
-        }
+  .comparison-table th {
+    font-size: 20px;
+  }
 
-        .comparison-table td {
-          font-size: 14px;
-        }
-      }
+  .comparison-table td {
+    font-size: 14px;
+  }
+}
+
     </style>
   </head>
   <body>
