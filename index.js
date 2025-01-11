@@ -417,10 +417,10 @@ app.post("/compare", async (req, res) => {
         }
       }
 
-      /* Mobile Styles */
       @media screen and (max-width: 600px) {
         body {
-          padding: 20px;
+          padding: 60px;
+          
         }
 
         h1 {
@@ -428,22 +428,36 @@ app.post("/compare", async (req, res) => {
         }
 
         .rough {
-          font-size: 16px;
+          font-size: 18px;
         }
 
         .comparison-table {
           width: 100%;
           padding: 10px;
+          margin:60px;
         }
 
         .comparison-table th, .comparison-table td {
-          font-size: 14px;
+          font-size: 20px;
           padding: 8px;
         }
 
         .message {
-          font-size: 16px;
+          font-size: 20px;
           margin-bottom: 10px;
+        }
+
+        .chat-box {
+          padding: 12px;
+          margin-bottom: 20px;
+        }
+
+        .comparison-table th {
+          font-size: 20px;
+        }
+
+        .comparison-table td {
+          font-size: 14px;
         }
       }
     </style>
