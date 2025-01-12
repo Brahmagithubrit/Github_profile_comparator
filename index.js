@@ -469,7 +469,7 @@ h1 {
     res.send(fullHtml);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error fetching data from GitHub API");
+    res.status(500).send("Error fetching data , make sure your internet connection working on and stable ");
   }
 });
 
