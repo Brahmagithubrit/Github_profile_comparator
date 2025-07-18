@@ -34,8 +34,7 @@
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/github-comparator.git
-cd github-comparator
+git clone https://github.com/Brahmagithubrit/Github_profile_comparator
 
 Add your GitHub token in `.env`:
 
@@ -43,19 +42,11 @@ Add your GitHub token in `.env`:
 GITHUB_TOKEN=your_personal_access_token_here
 ```
 
-Then run:
 
-```bash
-npm run dev
-```
 
-### 3. Setup frontend
 
-```bash
-cd ../client
-npm install
-npm start
-```
+
+
 
 Visit: [http://localhost:3000](http://localhost:3000)
 
@@ -98,6 +89,6 @@ MIT License
 Made with 💻 & ☕ by **Brahma**
 [LinkedIn](https://www.linkedin.com/in/brahmananda-tosh-770995266/) 
 
-```
+
 
 
