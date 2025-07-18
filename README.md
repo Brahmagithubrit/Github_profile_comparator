@@ -17,47 +17,25 @@
 
 ---
 
-##  Project Structure
-
-```
-
-github-comparator/
-├── client/   # Frontend (UI for input and result display)
-├── server/   # Backend (handles GitHub API calls and comparison logic)
-
-````
 
 ---
 
-##  Tech Stack
+## 🛠️ Tech Stack
 
-**Frontend (client):**
-- React (or Next.js)
-- Tailwind / Bootstrap (UI)
-- Axios
-
-**Backend (server):**
-- Node.js + Express
+- Node.js
+- Express.js
 - GitHub REST API
-- dotenv for API key management
+- EJS / HTML templates (optional)
+- dotenv for environment config
 
 ---
 
-##  Getting Started
+## 🚀 Getting Started
 
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/yourusername/github-comparator.git
 cd github-comparator
-````
-
-### 2. Setup backend
-
-```bash
-cd server
-npm install
-touch .env
-```
 
 Add your GitHub token in `.env`:
 
