@@ -1,5 +1,3 @@
-
-```markdown
 #  GitHub Developer Profile Comparator
 
 **GitHub Developer Profile Comparator** is a tool that uses the **GitHub API** to compare developer profiles based on key metrics like language usage, repository activity, followers, stars, and more. It helps users understand how two or more GitHub profiles stack up against each other — whether for learning, collaboration, or competition.
@@ -123,7 +121,5 @@ Made with 💻 & ☕ by **Brahma**
 [LinkedIn](https://www.linkedin.com/in/brahmananda-tosh-770995266/) 
 
 ```
-
----
 
 
