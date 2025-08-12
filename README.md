@@ -30,6 +30,12 @@
 
 ---
 
+<img width="1906" height="892" alt="Screenshot 2025-08-12 155549" src="https://github.com/user-attachments/assets/d7c7e4bf-3f9d-4ed6-982a-dc810967224e" />
+CLICK ON COMPARE 
+
+[GitHub Profile Comparison_redacted (1).pdf](https://github.com/user-attachments/files/21734589/GitHub.Profile.Comparison_redacted.1.pdf)
+
+
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
